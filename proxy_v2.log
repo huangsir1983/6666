@@ -11,3 +11,36 @@
  * Running on http://10.3.0.6:8080
 [33mPress CTRL+C to quit[0m
 127.0.0.1 - - [02/Feb/2026 06:08:38] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Feb/2026 06:12:16] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Feb/2026 06:12:23] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Feb/2026 06:13:18] "GET /health HTTP/1.1" 200 -
+[2026-02-02 06:13:18] ==================================================
+[2026-02-02 06:13:18] 收到 API 请求
+[2026-02-02 06:13:18] 请求头: {'Host': 'localhost:8080', 'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Api-Key': '779a1a01f7854c9998a3689b65e02282', 'Content-Length': '183', 'Content-Type': 'application/json'}
+[2026-02-02 06:13:18] 原始请求模型: claude-sonnet-4-5-20250929
+[2026-02-02 06:13:18] 映射后模型: glm-4.7
+[2026-02-02 06:13:18] 转换后的请求: {"model": "glm-4.7", "messages": [{"role": "user", "content": "你好，请用一句话介绍你自己"}], "stream": false, "max_tokens": 200}...
+[2026-02-02 06:13:18] 发送到: https://open.bigmodel.cn/api/paas/v4/chat/completions
+[2026-02-02 06:13:27] 智谱响应状态码: 200
+[2026-02-02 06:13:27] 智谱原始响应: {"choices": [{"finish_reason": "stop", "index": 0, "message": {"content": "我是由Z.ai开发的GLM大语言模型，致力于通过自然语言处理技术为用户提供智能化的信息检索和问题解答服务。", "reasoning_content": "用户想知道我是谁，要用一句话介绍。首先，我需要明确自己的身份，我是一个由Z.ai开发的GLM大...
+[2026-02-02 06:13:27] 提取的文本: 用户想知道我是谁，要用一句话介绍。首先，我需要明确自己的身份，我是一个由Z.ai开发的GLM大语言模型。接下来，要简洁地说明我的功能，比如能够理解和生成人类语言，帮助回答问题、提供建议等。还要注意用词...
+[2026-02-02 06:13:27] 请求成功完成
+127.0.0.1 - - [02/Feb/2026 06:13:27] "POST /v1/messages HTTP/1.1" 200 -
+[2026-02-02 06:13:28] ==================================================
+[2026-02-02 06:13:28] 收到 API 请求
+[2026-02-02 06:13:28] 请求头: {'Host': 'localhost:8080', 'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Api-Key': '779a1a01f7854c9998a3689b65e02282', 'Content-Length': '162', 'Content-Type': 'application/json'}
+[2026-02-02 06:13:28] 原始请求模型: claude-sonnet-4-5-20250929
+[2026-02-02 06:13:28] 映射后模型: glm-4.7
+[2026-02-02 06:13:28] 转换后的请求: {"model": "glm-4.7", "messages": [{"role": "user", "content": "写一个 Python 的 Hello World 程序"}], "stream": false, "max_tokens": 200}...
+[2026-02-02 06:13:28] 发送到: https://open.bigmodel.cn/api/paas/v4/chat/completions
+127.0.0.1 - - [02/Feb/2026 06:13:42] "GET /health HTTP/1.1" 200 -
+[2026-02-02 06:13:42] ==================================================
+[2026-02-02 06:13:42] 收到 API 请求
+[2026-02-02 06:13:42] 请求头: {'Host': 'localhost:8080', 'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Api-Key': 'ec5e4a880c9b4b6f8cff6cb8fb277c50', 'Content-Length': '183', 'Content-Type': 'application/json'}
+[2026-02-02 06:13:42] 原始请求模型: claude-sonnet-4-5-20250929
+[2026-02-02 06:13:42] 映射后模型: glm-4.7
+[2026-02-02 06:13:42] 转换后的请求: {"model": "glm-4.7", "messages": [{"role": "user", "content": "你好，请用一句话介绍你自己"}], "stream": false, "max_tokens": 100}...
+[2026-02-02 06:13:42] 发送到: https://open.bigmodel.cn/api/paas/v4/chat/completions
+[2026-02-02 06:13:42] 智谱响应状态码: 429
+[2026-02-02 06:13:42] 智谱错误响应: {"error":{"code":"1302","message":"您当前使用该API的并发数过高，请降低并发，或联系客服增加限额。"}}
+127.0.0.1 - - [02/Feb/2026 06:13:42] "[31m[1mPOST /v1/messages HTTP/1.1[0m" 429 -

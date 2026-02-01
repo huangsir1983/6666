@@ -10,3 +10,14 @@
  * Running on http://10.3.0.6:8082
 [33mPress CTRL+C to quit[0m
 127.0.0.1 - - [02/Feb/2026 06:09:20] "GET /auth/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Feb/2026 06:12:16] "[33mGET /health HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Feb/2026 06:12:18] "GET /auth/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Feb/2026 06:12:23] "[33mGET /health HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Feb/2026 06:12:25] "GET /auth/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Feb/2026 06:12:32] "GET /auth/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Feb/2026 06:13:02] "[33mGET /health HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Feb/2026 06:13:09] "[33mGET /health HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Feb/2026 06:13:18] "GET /auth/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Feb/2026 06:13:18] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Feb/2026 06:13:42] "GET /auth/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Feb/2026 06:13:42] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
