@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 故事生成器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e4e4e7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .story-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .story-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #c1c1e3;
+            white-space: pre-wrap;
+            margin-bottom: 20px;
+        }
+
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .choice-btn {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            border-radius: 10px;
+            color: #c1c1e3;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .choice-btn:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.5) 0%, rgba(118, 75, 162, 0.5) 100%);
+            transform: translateX(10px);
+        }
+
+        .input-area {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #a1a1aa;
+            font-size: 0.9em;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #e4e4e7;
+            font-size: 1em;
+            font-family: inherit;
+        }
+
+        .input-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .generate-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .history {
+            margin-top: 30px;
+        }
+
+        .history-title {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #a1a1aa;
+        }
+
+        .history-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 3px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .history-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #a1a1aa;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 AI 故事生成器</h1>
+            <p style="color: #71717a;">由智谱 GLM-4.7 驱动的互动式故事体验</p>
+        </div>
+
+        <div class="input-area" id="setupArea">
+            <div class="input-group">
+                <label for="genre">故事类型</label>
+                <input type="text" id="genre" placeholder="例如：科幻、奇幻、悬疑、武侠..." value="科幻">
+            </div>
+
+            <div class="input-group">
+                <label for="protagonist">主角</label>
+                <input type="text" id="protagonist" placeholder="主角的名字和特点" value="一位年轻的时间旅行者">
+            </div>
+
+            <div class="input-group">
+                <label for="setting">背景设定</label>
+                <textarea id="setting" placeholder="故事发生的世界和背景...">公元 3045 年，人类已经掌握了时空穿梭技术，但每次穿越都会消耗大量能量。</textarea>
+            </div>
+
+            <button class="generate-btn" onclick="startStory()">开始创作</button>
+        </div>
+
+        <div class="story-container" id="storyArea" style="display: none;">
+            <div class="story-text" id="storyText"></div>
+            <div class="choices" id="choicesArea"></div>
+            <button class="generate-btn" style="margin-top: 20px;" onclick="backToSetup()">重新开始</button>
+        </div>
+
+        <div class="history">
+            <div class="history-title">📜 历史记录</div>
+            <div id="historyList"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = '/api/anthropic/v1/messages';
+        const API_KEY = 'dummy_key';
+
+        let currentStory = '';
+        let storyHistory = [];
+
+        async function callAI(prompt, system = '') {
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': API_KEY
+                    },
+                    body: JSON.stringify({
+                        model: 'claude-sonnet-4-5-20250929',
+                        max_tokens: 1500,
+                        messages: [{ role: 'user', content: prompt }]
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                return data.content[0].text;
+            } catch (error) {
+                console.error('AI Error:', error);
+                return `出错了：${error.message}`;
+            }
+        }
+
+        async function startStory() {
+            const genre = document.getElementById('genre').value;
+            const protagonist = document.getElementById('protagonist').value;
+            const setting = document.getElementById('setting').value;
+
+            document.getElementById('setupArea').style.display = 'none';
+            document.getElementById('storyArea').style.display = 'block';
+            document.getElementById('storyArea').innerHTML = `
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>AI 正在创作你的故事...</p>
+                </div>
+            `;
+
+            const prompt = `请创作一个${genre}故事的开头。
+
+主角：${protagonist}
+背景设定：${setting}
+
+请写一个引人入胜的开场，并在结尾给出 3-4 个可能的剧情发展方向供读者选择。`;
+
+            const story = await callAI(prompt);
+
+            currentStory = story;
+            displayStory(story);
+            addToHistory(`${genre} - ${protagonist}`, story);
+        }
+
+        function displayStory(story) {
+            const storyArea = document.getElementById('storyArea');
+            storyArea.innerHTML = '';
+
+            const storyText = document.createElement('div');
+            storyText.className = 'story-text';
+            storyText.textContent = story;
+            storyArea.appendChild(storyText);
+
+            // 提取选项（简单的文本分割）
+            const parts = story.split(/\n*(?:选项|选择|Option)?\s*\d+[.、\)]\s*/i);
+            const choicesArea = document.createElement('div');
+            choicesArea.className = 'choices';
+
+            if (parts.length > 1) {
+                parts.slice(1).forEach((choice, index) => {
+                    if (choice.trim()) {
+                        const btn = document.createElement('button');
+                        btn.className = 'choice-btn';
+                        btn.textContent = choice.trim();
+                        btn.onclick = () => makeChoice(choice.trim());
+                        choicesArea.appendChild(btn);
+                    }
+                });
+            } else {
+                // 如果没有明确的选项，创建默认选项
+                ['继续剧情', '改变情节', '新角色登场'].forEach(choice => {
+                    const btn = document.createElement('button');
+                    btn.className = 'choice-btn';
+                    btn.textContent = choice;
+                    btn.onclick = () => makeChoice(choice);
+                    choicesArea.appendChild(btn);
+                });
+            }
+
+            storyArea.appendChild(choicesArea);
+
+            const backBtn = document.createElement('button');
+            backBtn.className = 'generate-btn';
+            backBtn.style.marginTop = '20px';
+            backBtn.textContent = '重新开始';
+            backBtn.onclick = backToSetup;
+            storyArea.appendChild(backBtn);
+        }
+
+        async function makeChoice(choice) {
+            const prompt = `故事继续发展。
+
+当前故事：
+${currentStory}
+
+读者选择：${choice}
+
+请根据读者的选择，继续发展故事，并在结尾给出新的选项。`;
+
+            document.getElementById('storyArea').innerHTML = `
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>故事在发展...</p>
+                </div>
+            `;
+
+            const continuation = await callAI(prompt);
+            currentStory = continuation;
+            displayStory(continuation);
+        }
+
+        function backToSetup() {
+            document.getElementById('setupArea').style.display = 'block';
+            document.getElementById('storyArea').style.display = 'none';
+        }
+
+        function addToHistory(title, content) {
+            storyHistory.unshift({ title, content });
+            if (storyHistory.length > 10) {
+                storyHistory.pop();
+            }
+            updateHistoryList();
+        }
+
+        function updateHistoryList() {
+            const list = document.getElementById('historyList');
+            list.innerHTML = '';
+
+            storyHistory.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'history-item';
+                div.innerHTML = `<strong>${item.title}</strong>`;
+                div.onclick = () => displayStory(item.content);
+                list.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>

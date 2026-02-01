@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 冷知识卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card-header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .card-header p {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+
+        .card-body {
+            padding: 40px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .fact-content {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .fact-category {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            padding: 20px;
+            background: #f9f9f9;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+        }
+
+        .btn-new {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-new:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-share {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-share:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f3f3f3;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes flip {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .card.flipping .card-body {
+            animation: flip 0.6s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="factCard">
+        <div class="card-header">
+            <h1>🧠 AI 冷知识</h1>
+            <p>由智谱 GLM-4.7 驱动的随机知识生成</p>
+        </div>
+
+        <div class="card-body" id="cardBody">
+            <div class="spinner"></div>
+            <p class="loading">正在获取有趣的知识...</p>
+        </div>
+
+        <div class="card-footer">
+            <button class="btn-new" onclick="newFact()">获取新知识</button>
+            <button class="btn-share" onclick="shareFact()">分享</button>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = '/api/anthropic/v1/messages';
+        const API_KEY = 'dummy_key';
+
+        const topics = [
+            '科学', '历史', '地理', '技术', '自然',
+            '天文', '数学', '文化', '心理学', '生物'
+        ];
+
+        async function getFact() {
+            const topic = topics[Math.floor(Math.random() * topics.length)];
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': API_KEY
+                    },
+                    body: JSON.stringify({
+                        model: 'claude-sonnet-4-5-20250929',
+                        max_tokens: 300,
+                        messages: [{
+                            role: 'user',
+                            content: `请分享一个关于${topic}的有趣冷知识或小知识。
+
+要求：
+1. 内容真实可靠
+2. 有趣或有启发性
+3. 语言简洁明了，50-100字
+4. 不要太晦涩难懂
+
+请直接给出知识内容，不需要其他解释。`
+                        }]
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const fact = data.content[0].text.trim();
+
+                return {
+                    category: topic,
+                    content: fact
+                };
+
+            } catch (error) {
+                console.error('Error:', error);
+                return {
+                    category: '错误',
+                    content: `获取知识失败：${error.message}`
+                };
+            }
+        }
+
+        async function displayFact() {
+            const card = document.getElementById('factCard');
+            const body = document.getElementById('cardBody');
+
+            // 添加翻转动画
+            card.classList.add('flipping');
+
+            // 显示加载中
+            body.innerHTML = `
+                <div class="spinner"></div>
+                <p class="loading">正在获取有趣的知识...</p>
+            `;
+
+            // 获取新知识
+            const fact = await getFact();
+
+            // 显示知识
+            setTimeout(() => {
+                body.innerHTML = `
+                    <span class="fact-category">🏷️ ${fact.category}</span>
+                    <p class="fact-content">${fact.content}</p>
+                `;
+                card.classList.remove('flipping');
+            }, 300);
+        }
+
+        function newFact() {
+            displayFact();
+        }
+
+        async function shareFact() {
+            const body = document.getElementById('cardBody');
+            const category = body.querySelector('.fact-category')?.textContent || '冷知识';
+            const content = body.querySelector('.fact-content')?.textContent || '';
+
+            const shareText = `【${category}】\n${content}\n\n#AI冷知识 #智谱GLM`;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'AI 冷知识',
+                        text: shareText
+                    });
+                } catch (err) {
+                    copyToClipboard(shareText);
+                }
+            } else {
+                copyToClipboard(shareText);
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('已复制到剪贴板！');
+            }).catch(() => {
+                alert('复制失败');
+            });
+        }
+
+        // 页面加载时获取第一个知识
+        window.onload = displayFact;
+    </script>
+</body>
+</html>

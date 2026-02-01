@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 工具箱 - 智谱 API 服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .pricing {
+            margin: 80px 0;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.popular {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2.5em;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 0.4em;
+            color: #666;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #667eea;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .api-demo {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .api-demo h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        .tools-section {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .tools-section h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-link {
+            display: block;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .tool-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            opacity: 0.8;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 AI 工具箱</h1>
+            <p class="subtitle">强大的 API 服务 + 完整的 AI 应用套件</p>
+        </header>
+
+        <div class="features">
+            <div class="feature">
+                <h3>⚡ 高性能 API</h3>
+                <p>Claude Code 完美兼容，通过我们的代理服务轻松接入智谱 AI，享受企业级性能。</p>
+            </div>
+            <div class="feature">
+                <h3>💬 智能聊天</h3>
+                <p>全功能 AI 聊天助手，支持代码高亮、历史记录，随时随地与 AI 对话。</p>
+            </div>
+            <div class="feature">
+                <h3>🎨 创意工具</h3>
+                <p>故事生成器、代码生成器、冷知识卡片等创意工具，激发无限灵感。</p>
+            </div>
+        </div>
+
+        <div class="tools-section">
+            <h2>🛠️ 免费工具（立即体验）</h2>
+            <div class="tool-grid">
+                <a href="/glm_chat.html" class="tool-link">
+                    <h4>💬 智能聊天</h4>
+                    <p>与 AI 对话</p>
+                </a>
+                <a href="/ai_story.html" class="tool-link">
+                    <h4>📚 故事生成</h4>
+                    <p>AI 创作故事</p>
+                </a>
+                <a href="/code_generator.html" class="tool-link">
+                    <h4>💻 代码生成</h4>
+                    <p>智能写代码</p>
+                </a>
+                <a href="/ai_facts.html" class="tool-link">
+                    <h4>🧠 冷知识</h4>
+                    <p>有趣知识卡</p>
+                </a>
+                <a href="/bubble_sort.html" class="tool-link">
+                    <h4>📊 排序可视化</h4>
+                    <p>算法动画</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="pricing">
+            <h2>💰 API 服务定价</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>免费版</h3>
+                    <div class="price">¥0<span>/月</span></div>
+                    <ul class="features-list">
+                        <li>100 次/天调用</li>
+                        <li>1,000 次/月调用</li>
+                        <li>基础 API 支持</li>
+                        <li>社区支持</li>
+                    </ul>
+                    <a href="javascript:alert('注册功能即将上线')" class="cta-button">免费注册</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="tag">最受欢迎</div>
+                    <h3>基础版</h3>
+                    <div class="price">¥99<span>/月</span></div>
+                    <ul class="features-list">
+                        <li>500 次/天调用</li>
+                        <li>10,000 次/月调用</li>
+                        <li>优先响应</li>
+                        <li>邮件支持</li>
+                        <li>使用统计</li>
+                    </ul>
+                    <a href="javascript:alert('注册功能即将上线')" class="cta-button">立即订阅</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>专业版</h3>
+                    <div class="price">¥299<span>/月</span></div>
+                    <ul class="features-list">
+                        <li>2,000 次/天调用</li>
+                        <li>100,000 次/月调用</li>
+                        <li>最高优先级</li>
+                        <li>专属客服</li>
+                        <li>实时监控</li>
+                        <li>自定义配置</li>
+                    </ul>
+                    <a href="javascript:alert('注册功能即将上线')" class="cta-button">立即订阅</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>企业版</h3>
+                    <div class="price">¥999<span>/月</span></div>
+                    <ul class="features-list">
+                        <li>无限制调用</li>
+                        <li>专用实例</li>
+                        <li>SLA 保证</li>
+                        <li>7x24 支持</li>
+                        <li>定制开发</li>
+                        <li>专属顾问</li>
+                    </ul>
+                    <a href="javascript:alert('联系 sales@example.com')" class="cta-button">联系销售</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="api-demo">
+            <h2>🔧 API 使用示例</h2>
+            <pre class="code-block">
+# 1. 注册获取 API Key
+curl -X POST http://your-server:8082/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"email":"your@email.com","password":"password123"}'
+
+# 2. 使用 API 调用智谱 AI
+curl -X POST http://your-server:8080/v1/messages \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: YOUR_API_KEY" \
+  -d '{
+    "model": "claude-sonnet-4-5-20250929",
+    "max_tokens": 200,
+    "messages": [{"role":"user","content":"你好"}]
+  }'
+            </pre>
+        </div>
+
+        <footer>
+            <p>© 2026 AI 工具箱 - 让 AI 触手可及</p>
+            <p>Powered by 智谱 AI</p>
+        </footer>
+    </div>
+</body>
+</html>
