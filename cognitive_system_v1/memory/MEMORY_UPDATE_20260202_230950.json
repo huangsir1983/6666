@@ -1,0 +1,54 @@
+[
+  {
+    "type": "skill",
+    "name": "自动化测试与验证 (Auto Test & Validate)",
+    "description": "自动化测试赚钱系统的每个步骤（需求挖掘、明确、分析、实现、销售、收入）",
+    "date": "2026-02-02T23:09:50.933686+08:00"
+  },
+  {
+    "type": "skill",
+    "name": "产出更多真实项目 (Output More Real Projects)",
+    "description": "产出能用的工具、SaaS 服务、GitHub 仓库",
+    "date": "2026-02-02T23:09:50.933695+08:00"
+  },
+  {
+    "type": "skill",
+    "name": "发布更多博客文章 (Publish More Blog Posts)",
+    "description": "发布高质量、有实际价值的博客文章到掘金、知乎、Hacker News",
+    "date": "2026-02-02T23:09:50.933698+08:00"
+  },
+  {
+    "type": "skill",
+    "name": "建立品牌 (Brand Building)",
+    "description": "通过高质量的开源项目、博客文章和社区互动建立“AI 工具箱”专家形象",
+    "date": "2026-02-02T23:09:50.933701+08:00"
+  },
+  {
+    "type": "knowledge",
+    "title": "赚钱循环财务模型 (Monetization Cycle Financial Model)",
+    "content": "成本：¥13,500/月，收入：¥60,000/月，利润率：77.5%",
+    "source": "内部测试 (Monetization Cycle Test)",
+    "date": "2026-02-02T23:09:50.933704+08:00"
+  },
+  {
+    "type": "knowledge",
+    "title": "认知系统设计 (Cognitive System Design)",
+    "content": "类大脑模式，支持自动迭代、升级、验证",
+    "source": "内部设计 (Cognitive System V1.0)",
+    "date": "2026-02-02T23:09:50.933707+08:00"
+  },
+  {
+    "type": "experience",
+    "title": "博客写作经验 (Blog Writing Experience)",
+    "content": "成功发布了“如何用 Claude Code 自动摘要论文并生成思维导图？”博客文章",
+    "outcome": "积极 (Positive)",
+    "date": "2026-02-02T23:09:50.933710+08:00"
+  },
+  {
+    "type": "experience",
+    "title": "财务模型分析经验 (Financial Model Analysis Experience)",
+    "content": "成功分析了赚钱系统，计算出 77.5% 的高利润率",
+    "outcome": "积极 (Positive)",
+    "date": "2026-02-02T23:09:50.933713+08:00"
+  }
+]
