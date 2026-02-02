@@ -1,9 +1,9 @@
 {
   "clock_version": "1.0.0",
   "started_at": "2026-02-02T17:29:31.716126+08:00",
-  "current_time": "2026-02-02T22:29:31.722211+08:00",
+  "current_time": "2026-02-02T23:29:31.723216+08:00",
   "timezone": "GMT+8 (Beijing)",
-  "sync_count": 6,
+  "sync_count": 7,
   "sync_history": [
     {
       "sync_time": "2026-02-02T17:29:31.717402+08:00",
@@ -33,6 +33,11 @@
     {
       "sync_time": "2026-02-02T22:29:31.722193+08:00",
       "sync_count": 6,
+      "concept_level": 1
+    },
+    {
+      "sync_time": "2026-02-02T23:29:31.723199+08:00",
+      "sync_count": 7,
       "concept_level": 1
     }
   ],

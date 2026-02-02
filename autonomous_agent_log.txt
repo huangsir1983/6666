@@ -1,0 +1,8 @@
+[AUTO] 2026-02-02 23:34:14] [AUTONOMOUS-AGENT] [DEBUG] 用户活动时间已更新：2026-02-02T23:34:14.116142+08:00
+Traceback (most recent call last):
+  File "/root/.openclaw/workspace/autonomous_scheduler.py", line 261, in <module>
+    main()
+  File "/root/.openclaw/workspace/autonomous_scheduler.py", line 238, in main
+    while IS_RUNNING:
+          ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'IS_RUNNING' where it is not associated with a value
