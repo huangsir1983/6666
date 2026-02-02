@@ -1,504 +1,529 @@
-# 📋 CHEATSHEETS - 速查表
+# 🎹 CHEATSHEETS - 速查表（更新版 v1.1）
 
-**最后更新：** 2026-02-02 12:45（北京时间）
+**最后更新：** 2026-02-02 18:45（北京时间）
 **会话ID：** session-20260202-0655
-**目的：** 常用命令和代码片段的快速参考
+**目的：** 快速查找常用命令、代码片段和最佳实践
 
 ---
 
-## 🐍 Python
+## 🕸️ 网络爬虫速查表
 
-### Flask Web 开发
+### HTTP 请求
 
-```python
-# 快速启动
-from flask import Flask, render_template, request, jsonify
-app = Flask(__name__)
-
-@app.route('/')
-def hello():
-    return 'Hello World!'
-
-@app.route('/api', methods=['POST'])
-def api():
-    data = request.json
-    return jsonify({'success': True, 'data': data})
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+**安装 Requests**
+```bash
+pip install requests
 ```
 
-### Requests HTTP 请求
-
+**GET 请求**
 ```python
 import requests
 
-# GET 请求
-response = requests.get('https://api.example.com/data')
-data = response.json()
-
-# POST 请求（JSON）
-payload = {'key': 'value'}
-response = requests.post('https://api.example.com/data', json=payload)
-
-# POST 请求（表单）
-payload = {'key1': 'value1', 'key2': 'value2'}
-response = requests.post('https://api.example.com/data', data=payload)
-
-# 带请求头的请求
-headers = {'Authorization': 'Bearer token', 'Content-Type': 'application/json'}
-response = requests.get('https://api.example.com/data', headers=headers)
-
-# 超时设置
-response = requests.get('https://api.example.com/data', timeout=10)
-
-# 会话管理
-session = requests.Session()
-response = session.get('https://api.example.com/login')
-response = session.get('https://api.example.com/data')  # 使用 Cookie
+response = requests.get('https://example.com')
+print(response.status_code)
+print(response.text)
 ```
 
-### JSON 处理
-
+**POST 请求**
 ```python
-import json
+import requests
 
-# 读取 JSON 文件
-with open('data.json', 'r') as f:
-    data = json.load(f)
-
-# 写入 JSON 文件
-with open('data.json', 'w') as f:
-    json.dump(data, f, indent=2, ensure_ascii=False)
-
-# JSON 字符串转对象
-data = json.loads('{"key": "value"}')
-
-# 对象转 JSON 字符串
-json_str = json.dumps(data, ensure_ascii=False)
-
-# 美化 JSON 输出
-print(json.dumps(data, indent=2))
+data = {'key': 'value'}
+response = requests.post('https://example.com', json=data)
+print(response.text)
 ```
 
-### 日期时间处理
+---
 
-```python
-from datetime import datetime, timedelta
+### HTML 解析
 
-# 当前时间
-now = datetime.now()
-print(f"当前时间：{now.strftime('%Y-%m-%d %H:%M:%S')}")
-
-# 时间计算
-tomorrow = now + timedelta(days=1)
-last_week = now - timedelta(weeks=1)
-
-# 字符串转时间
-date_str = '2026-02-02'
-date_obj = datetime.strptime(date_str, '%Y-%m-%d')
-
-# 时间转字符串
-date_str = date_obj.strftime('%Y-%m-%d')
+**安装 BeautifulSoup**
+```bash
+pip install beautifulsoup4
 ```
 
-### 文件操作
-
+**提取标题**
 ```python
-# 读取文件
-with open('file.txt', 'r') as f:
-    content = f.read()
+from bs4 import BeautifulSoup
+import requests
 
-# 写入文件
-with open('file.txt', 'w') as f:
-    f.write('Hello World!')
+response = requests.get('https://example.com')
+soup = BeautifulSoup(response.text, 'html.parser')
+title = soup.find('title').text
+print(title)
+```
 
-# 追加写入
-with open('file.txt', 'a') as f:
-    f.write('\nNew line')
+**提取所有链接**
+```python
+from bs4 import BeautifulSoup
+import requests
 
-# 文件是否存在
+response = requests.get('https://example.com')
+soup = BeautifulSoup(response.text, 'html.parser')
+links = soup.find_all('a')
+for link in links:
+    print(link.get('href'))
+```
+
+---
+
+### 数据提取
+
+**提取邮箱**
+```python
+import re
+import requests
+
+response = requests.get('https://example.com')
+html = response.text
+emails = re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', html)
+for email in emails:
+    print(email)
+```
+
+---
+
+## 🤖 AI Agents & LLM 速查表
+
+### LangChain
+
+**安装**
+```bash
+pip install langchain
+pip install langchain-openai  # OpenAI 集成
+pip install langchain-community  # 社区集成
+```
+
+**基本使用：简单链式调用**
+```python
+from langchain.llms import OpenAI
+from langchain.prompts import ChatPromptTemplate
+
+llm = OpenAI(temperature=0.7)
+prompt = ChatPromptTemplate.from_template("回答：{question}")
+chain = prompt | llm
+response = chain.invoke({"question": "你好"})
+print(response)
+```
+
+**基本使用：提示词模板**
+```python
+from langchain.prompts import PromptTemplate
+
+prompt = PromptTemplate.from_template(
+    "你是{role}，请{action}：{topic}"
+)
+
+formatted_prompt = prompt.format(
+    role="Python 开发者",
+    action="解释 Python 装饰器",
+    topic="@property"
+)
+
+print(formatted_prompt)
+```
+
+---
+
+### LlamaIndex
+
+**安装**
+```bash
+pip install llama-index
+pip install llama-index-llms-openai  # OpenAI LLM
+pip install llama-index-vectorstores-pinecone  # Pinecone 向量存储
+```
+
+**基本使用：创建索引**
+```python
+from llama_index import VectorStoreIndex, Document
+from llama_index.vectorstores import Chroma
+from llama_index.llms import OpenAI
+
+documents = [Document(text="文档 1"), Document(text="文档 2")]
+index = VectorStoreIndex.from_documents(documents)
+query_engine = index.as_query_engine()
+
+response = query_engine.query("你的问题")
+print(response)
+```
+
+---
+
+### ChromaDB
+
+**安装**
+```bash
+pip install chromadb
+```
+
+**基本使用：创建和查询**
+```python
+import chromadb
+
+client = chromadb.Client()
+collection = client.create_collection(name="documents")
+
+# 添加文档
+collection.add(
+    documents=["文档 1", "文档 2"],
+    metadatas=[{"source": "local"}, {"source": "web"}],
+    ids=["doc1", "doc2"]
+)
+
+# 查询
+results = collection.query(
+    query_texts=["搜索问题"],
+    n_results=2
+)
+
+print(results)
+```
+
+---
+
+### Pinecone
+
+**安装**
+```bash
+pip install pinecone-client
+```
+
+**基本使用：创建和查询**
+```python
+import pinecone
+
+# 初始化
+pinecone.init(api_key="your-api-key", environment="us-west1-gcp-free")
+
+# 创建索引
+index = pinecone.Index("my-index")
+
+# 上传向量
+index.upsert(
+    vectors=[(1, [0.1, 0.2, 0.3]), (2, [0.4, 0.5, 0.6])],
+    metadata=[{"id": "doc1"}, {"id": "doc2"}]
+)
+
+# 查询
+results = index.query(queries=[[0.1, 0.2, 0.3]], top_k=2)
+print(results)
+```
+
+---
+
+## 🤖 AI 代理速查表
+
+### AutoGPT
+
+**安装**
+```bash
+pip install autogpt
+```
+
+**基本使用**
+```python
+from autogpt import AutoGPT
+
+agent = AutoGPT(
+    llm="gpt-3.5-turbo",
+    project_name="my-project"
+)
+agent.run()
+```
+
+---
+
+### BabyAGI
+
+**安装**
+```bash
+pip install babyagi
+```
+
+**基本使用**
+```python
 import os
-if os.path.exists('file.txt'):
-    print("文件存在")
+from babyagi import Agent
 
-# 删除文件
-os.remove('file.txt')
-
-# 遍历目录
-for root, dirs, files in os.walk('/path/to/dir'):
-    for file in files:
-        print(os.path.join(root, file))
+os.environ["OPENAI_API_KEY"] = "your-api-key"
+agent = Agent(
+    "你的目标",
+    "你的第一个任务"
+)
+agent.run()
 ```
 
 ---
 
-## 🌐 Git
+### CrewAI
 
-### 常用命令
-
+**安装**
 ```bash
-# 初始化仓库
-git init
-
-# 添加所有文件
-git add .
-
-# 提交
-git commit -m "Commit message"
-
-# 查看状态
-git status
-
-# 查看日志
-git log
-git log --oneline  # 简洁的日志
-git log --graph    # 图形化日志
-
-# 查看分支
-git branch
-
-# 创建分支
-git branch new-branch
-
-# 切换分支
-git checkout new-branch
-
-# 合并分支
-git merge other-branch
-
-# 删除分支
-git branch -d old-branch
-
-# 拉取更新
-git pull origin main
-
-# 推送更新
-git push origin main
-
-# 查看远程仓库
-git remote -v
-
-# 添加远程仓库
-git remote add origin https://github.com/username/repo.git
+pip install crewai
 ```
 
-### 高级操作
-
-```bash
-# 回退到特定版本
-git reset --hard commit-id
-
-# 撤销最后一次提交（保留更改）
-git reset --soft HEAD~1
-
-# 修改最后一次提交
-git commit --amend
-
-# 标签管理
-git tag v1.0.0  # 创建标签
-git tag -a v1.0.0 -m "Version 1.0.0"  # 带注释的标签
-git push origin v1.0.0  # 推送标签
-git push origin --tags  # 推送所有标签
-
-# 储藏更改
-git stash
-git stash pop
-
-# 变基操作
-git rebase main
-
-# 清理未追踪的文件
-git clean -f
-```
-
----
-
-## 🐳 Docker
-
-### 常用命令
-
-```bash
-# 构建 Docker 镜像
-docker build -t image-name .
-
-# 运行容器
-docker run -d -p 8080:8080 image-name
-
-# 查看运行中的容器
-docker ps
-
-# 查看所有容器
-docker ps -a
-
-# 停止容器
-docker stop container-id
-
-# 删除容器
-docker rm container-id
-
-# 查看容器日志
-docker logs container-id
-
-# 进入容器
-docker exec -it container-id /bin/bash
-
-# 停止并删除所有容器
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
-
-# 删除所有镜像
-docker rmi $(docker images -q)
-
-# 查看镜像
-docker images
-
-# 删除未使用的镜像
-docker image prune
-```
-
-### Dockerfile 示例
-
-```dockerfile
-# Python Web 应用
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 8080
-CMD ["python", "app.py"]
-```
-
----
-
-## 🖥️ Linux 系统管理
-
-### 进程管理
-
-```bash
-# 查看所有进程
-ps aux
-
-# 查看特定进程
-ps aux | grep python3
-
-# 查看进程树
-pstree
-
-# 杀死进程
-kill pid
-kill -9 pid  # 强制杀死
-
-# 后台运行
-nohup command &
-
-# 后台运行并记录日志
-nohup command > log.txt 2>&1 &
-```
-
-### 服务管理
-
-```bash
-# Systemd 服务
-systemctl start service-name
-systemctl stop service-name
-systemctl restart service-name
-systemctl status service-name
-systemctl enable service-name  # 开机自启
-systemctl disable service-name # 禁用开机自启
-
-# 查看服务日志
-journalctl -u service-name
-```
-
-### 文件和目录操作
-
-```bash
-# 查看文件大小
-du -sh filename
-du -sh directory
-
-# 查找文件
-find . -name "*.py"
-
-# 统计文件数量
-find . -name "*.md" | wc -l
-
-# 查找并删除
-find . -name "*.log" -delete
-
-# 修改权限
-chmod 755 script.sh  # rwxr-xr-x
-chmod +x script.sh  # 添加执行权限
-
-# 修改所有者
-chown user:group filename
-```
-
----
-
-## 🌐 网络
-
-### 端口查看
-
-```bash
-# 查看端口占用
-netstat -tuln | grep 8080
-ss -tuln | grep 8080
-lsof -i :8080
-```
-
-### 网络测试
-
-```bash
-# Ping 测试
-ping google.com
-
-# 测试端口连接
-telnet host port
-nc -zv host port
-
-# 下载速度测试
-curl -o /dev/null -s -w "%{speed_download}\n" http://example.com/file
-```
-
-### 防火墙
-
-```bash
-# firewalld 防火墙
-firewall-cmd --state
-firewall-cmd --list-all
-firewall-cmd --add-port=8080/tcp --permanent
-firewall-cmd --reload
-```
-
----
-
-## 📊 数据处理
-
-### 文本处理
-
-```bash
-# 查看文件内容
-cat file.txt
-
-# 查看文件前 N 行
-head -n 10 file.txt
-
-# 查看文件后 N 行
-tail -n 10 file.txt
-
-# 实时查看文件
-tail -f file.txt
-
-# 搜索文本
-grep "keyword" file.txt
-
-# 统计行数
-wc -l file.txt
-
-# 统计字数
-wc -w file.txt
-```
-
-### 数据转换
-
-```bash
-# JSON 格式化
-python3 -m json.tool file.json
-
-# 转换编码
-iconv -f utf-8 -t gbk input.txt > output.txt
-
-# Base64 编码
-echo "text" | base64
-
-# Base64 解码
-echo "text" | base64 -d
-```
-
----
-
-## 🔄 定时任务
-
-### Cron 定时任务
-
-```bash
-# 编辑 Crontab
-crontab -e
-
-# 每小时整点执行
-0 * * * * /path/to/script.sh
-
-# 每天 2:00 执行
-0 2 * * * /path/to/script.sh
-
-# 每周一 9:00 执行
-0 9 * * 1 /path/to/script.sh
-
-# 每 15 分钟执行
-*/15 * * * * /path/to/script.sh
-
-# 查看 Cron 任务
-crontab -l
-
-# 删除所有 Cron 任务
-crontab -r
-```
-
----
-
-## 🔍 调试技巧
-
-### Python 调试
-
+**基本使用**
 ```python
-# 使用 print 调试
-print(f"Variable value: {variable}")
-print(f"Variable type: {type(variable)}")
+from crewai import Agent, Task, Crew
 
-# 使用 pdb 调试器
-import pdb; pdb.set_trace()
+# 创建代理
+researcher = Agent(
+    role="研究员",
+    goal="研究最新的 AI 技术",
+    backstory="你是一名 AI 研究员",
+    llm="gpt-3.5-turbo"
+)
 
-# 查看异常信息
-import traceback
-try:
-    # code that may raise exception
-except Exception as e:
-    traceback.print_exc()
+# 创建任务
+task1 = Task(
+    description="研究 LangChain",
+    expected_output="一份 LangChain 的研究报告",
+    agent=researcher
+)
+
+# 创建团队
+crew = Crew(
+    agents=[researcher],
+    tasks=[task1],
+    verbose=True
+)
+
+# 运行团队
+crew.kickoff()
 ```
 
-### 日志查看
+---
 
+## 🛠 工具使用速查表
+
+### Tavily
+
+**安装**
 ```bash
-# 查看日志文件
-tail -f log.txt
-
-# 搜索日志
-grep "error" log.txt
-grep "error" log.txt | tail -20  # 最后 20 个错误
-
-# 统计错误数量
-grep "error" log.txt | wc -l
+pip install tavily-python
 ```
+
+**基本使用**
+```python
+from tavily import TavilyClient
+
+client = TavilyClient(api_key="your-api-key")
+response = client.search(query="搜索问题", max_results=5)
+print(response)
+```
+
+---
+
+### Serper.dev
+
+**安装**
+```bash
+pip install google-search-results
+# 或者使用 Serper.dev 官方 SDK
+```
+
+**基本使用（模拟）**
+```python
+import requests
+
+headers = {
+    "X-API-KEY": "your-api-key"
+}
+params = {
+    "q": "搜索问题"
+}
+
+response = requests.get(
+    "https://google.serper.dev/search",
+    headers=headers,
+    params=params
+)
+
+results = response.json()
+print(results)
+```
+
+---
+
+## 🚀 部署速查表
+
+### Fly.io
+
+**安装 CLI**
+```bash
+curl -L https://fly.io/install.sh | sh
+```
+
+**登录**
+```bash
+fly auth login
+```
+
+**部署应用**
+```bash
+fly launch
+```
+
+---
+
+### Railway
+
+**安装 CLI**
+```bash
+npm install -g @railway/cli
+```
+
+**登录**
+```bash
+railway login
+```
+
+**部署应用**
+```bash
+railway up
+```
+
+---
+
+### Modal
+
+**安装**
+```bash
+pip install modal
+```
+
+**登录**
+```bash
+modal token new
+```
+
+**部署应用**
+```python
+import modal
+
+@app.function()
+def hello():
+    return "Hello, Modal!"
+```
+
+---
+
+## 🌐 互联网搜索速查表（新增）
+
+### 谷歌搜索
+
+**搜索命令**
+```python
+import requests
+
+query = "搜索问题"
+url = f"https://www.google.com/search?q={query}"
+response = requests.get(url)
+print(response.status_code)
+```
+
+---
+
+### 必应搜索
+
+**搜索命令**
+```python
+import requests
+
+query = "搜索问题"
+url = f"https://cn.bing.com/search?q={query}"
+response = requests.get(url)
+print(response.status_code)
+```
+
+---
+
+## 📊 所有速查表
+
+### 编程语言
+- Python 速查表
+- JavaScript 速查表
+- HTML/CSS 速查表
+- Bash/Shell 速查表
+
+### Web 开发
+- Flask 速查表
+- REST API 速查表
+
+### 版本控制
+- Git 速查表
+- GitHub API 速查表
+
+### 自动化
+- Requests 速查表
+- Selenium 速查表（新增）
+- Bash 脚本速查表
+
+### 系统管理
+- Linux 速查表
+- Systemd 速查表
+- Cron 速查表
+
+### 网络爬虫（新增）
+- HTTP 请求速查表
+- HTML 解析速查表
+- 数据提取速查表
+- Selenium 自动化速查表
+- 反爬虫策略速查表
+- 异步爬虫速查表
+
+### AI Agents & LLM（新增）
+- LangChain 速查表
+- LlamaIndex 速查表
+- ChromaDB 速查表
+- Pinecone 速查表
+- AutoGPT 速查表
+- BabyAGI 速查表
+- CrewAI 速查表
+
+### 工具使用（新增）
+- Tavily 速查表
+- Serper.dev 速查表
+- Apify 速查表
+
+### 部署（新增）
+- Fly.io 速查表
+- Railway 速查表
+- Modal 速查表
+
+---
+
+## 🎯 快速开始
+
+### 想学习网络爬虫？
+- 查看 "网络爬虫速查表"
+- 查看 `WEB_SCRAPING.md`
+- 开始写第一个爬虫
+
+### 想学习 LangChain？
+- 查看 "AI Agents & LLM 速查表"
+- 查看 `DOWNLOADED_SKILLS.md`
+- 开始构建第一个 LLM 应用
+
+### 想学习部署？
+- 查看 "部署速查表"
+- 查看 `DOWNLOADED_SKILLS.md`
+- 开始部署第一个应用
 
 ---
 
 ## 📝 备注
 
-### 快速查找
-- 使用 `Ctrl + F` 在浏览器中查找
-- 使用 `grep` 在文件中查找
-- 使用 `which` 和 `where` 查找命令路径
+### 重要提醒
 
-### 效率提升
-- 使用 Tab 自动补全
-- 使用历史命令（`↑` `↓`）
-- 使用别名简化长命令
+1. **速查表只是参考** - 实际使用时可能需要调整
+2. **官方文档最权威** - 遇到问题时，先查阅官方文档
+3. **实践出真知** - 多练习，多实践，多总结
 
 ---
 
-**最后更新：** 2026-02-02 12:45（北京时间）
+**最后更新：** 2026-02-02 18:45（北京时间）
 **会话ID：** session-20260202-0655
-**状态：** 🟢 速查表完成
+**当前版本：** v1.1（包含网络爬虫和 AI Agents 速查表）
+**下一版本：** v1.2（目标：2026-02-03）

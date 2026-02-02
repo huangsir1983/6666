@@ -1,0 +1,20 @@
+{
+  "clock_version": "1.0.0",
+  "started_at": "2026-02-02T17:30:09.898912+08:00",
+  "last_sync_at": "2026-02-02T17:30:09.899132+08:00",
+  "last_sync_gmt_at": "2026-02-02T09:30:09.899133+00:00",
+  "current_beijing_time": "2026-02-02T17:30:09.899132+08:00",
+  "current_gmt_time": "2026-02-02T09:30:09.899133+00:00",
+  "sync_count": 1,
+  "gmt_sync_count": 1,
+  "sync_history": [
+    {
+      "beijing_sync_time": "2026-02-02T17:30:09.899132+08:00",
+      "gmt_sync_time": "2026-02-02T09:30:09.899133+00:00",
+      "sync_count": 1,
+      "gmt_sync_count": 1
+    }
+  ],
+  "timezone": "GMT+8 (Beijing)",
+  "gmt_timezone": "GMT (Greenwich Mean Time)"
+}

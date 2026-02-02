@@ -1,0 +1,25 @@
+{
+  "clock_version": "1.0.0",
+  "started_at": "2026-02-02T17:29:31.716126+08:00",
+  "current_time": "2026-02-02T17:29:31.717410+08:00",
+  "timezone": "GMT+8 (Beijing)",
+  "sync_count": 1,
+  "sync_history": [
+    {
+      "sync_time": "2026-02-02T17:29:31.717402+08:00",
+      "sync_count": 1,
+      "concept_level": 1
+    }
+  ],
+  "concept_evolution": {
+    "current_level": 1,
+    "levels": {
+      "1": "基础时间概念",
+      "2": "时间区域理解",
+      "3": "时间同步机制",
+      "4": "时间管理与优化",
+      "5": "时间哲学与规划"
+    },
+    "milestones": []
+  }
+}

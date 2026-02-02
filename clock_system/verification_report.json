@@ -1,0 +1,8 @@
+{
+  "verification_time": "2026-02-02T17:30:09.899877+08:00",
+  "gmt_sync_verified": true,
+  "timezone_offset_verified": true,
+  "expected_offset_hours": 8,
+  "actual_offset_hours": 2.7777777777777777e-10,
+  "verification_result": "FAILED"
+}

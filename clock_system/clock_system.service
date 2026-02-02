@@ -1,0 +1,19 @@
+[Unit]
+Description=Internal Clock System - Auto Sync Every 1 Hour
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/.openclaw/workspace
+ExecStart=/usr/bin/python3 /root/.openclaw/workspace/clock_system/clock_system.py
+Restart=always
+RestartSec=10
+
+# 日志
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=clock_system
+
+[Install]
+WantedBy=multi-user.target
