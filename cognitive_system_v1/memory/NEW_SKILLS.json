@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "自动化测试与验证 (Auto Test & Validate)",
+    "description": "自动化测试赚钱系统的每个步骤（需求挖掘、明确、分析、实现、销售、收入）",
+    "learning_source": "内部知识库 (Monetization System V1.0)",
+    "estimated_learning_time": "1 周",
+    "difficulty": "中"
+  },
+  {
+    "id": 2,
+    "name": "产出更多真实项目 (Output More Real Projects)",
+    "description": "产出能用的工具、SaaS 服务、GitHub 仓库",
+    "learning_source": "内部知识库 (Monetization System V1.0)",
+    "estimated_learning_time": "2 周",
+    "difficulty": "高"
+  },
+  {
+    "id": 3,
+    "name": "发布更多博客文章 (Publish More Blog Posts)",
+    "description": "发布高质量、有实际价值的博客文章到掘金、知乎、Hacker News",
+    "learning_source": "内部知识库 (Monetization System V1.0)",
+    "estimated_learning_time": "1 周",
+    "difficulty": "中"
+  },
+  {
+    "id": 4,
+    "name": "建立品牌 (Brand Building)",
+    "description": "通过高质量的开源项目、博客文章和社区互动建立“AI 工具箱”专家形象",
+    "learning_source": "内部知识库 (OpenCode Skills, Claude Code Skills)",
+    "estimated_learning_time": "3 个月",
+    "difficulty": "极高"
+  }
+]
