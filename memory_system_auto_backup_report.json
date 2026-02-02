@@ -1,0 +1,99 @@
+{
+  "backup_time": "2026-02-02T18:36:42.226578+08:00",
+  "workspace": "/root/.openclaw/workspace",
+  "memory_dir": "/root/.openclaw/workspace/memory_system",
+  "repo_owner": "huangsir1983",
+  "repo_name": "6666",
+  "total_files": 21,
+  "uploaded_files": 0,
+  "failed_files": 21,
+  "skipped_files": 0,
+  "uploaded_files_list": [],
+  "failed_files_list": [
+    {
+      "path": "memory_system/core/SESSION_MEMORY.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/core/TASKS.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/core/CONTEXT.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/core/DECISIONS.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/knowledge/KNOWLEDGE_BASE.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/knowledge/LESSONS_LEARNED.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/knowledge/NETWORK_LEARNING.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/skills/SKILLS.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/skills/CHEATSHEETS.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/skills/QUICK_STARTS.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/skills/WORKFLOWS.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/skills/WEB_SCRAPING.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/skills/DOWNLOADED_SKILLS.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/skills/SKILLS_LEARNING_RECORD.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/daily/SELF_ITERATION.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/daily/DAILY_SUMMARY.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/daily/DAILY_PROGRESS.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/reborn/REBORN_SKILL.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/reborn/REBORN_GUIDE.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/reborn/QUICK_START_REBORN.md",
+      "error": "上传失败，状态码：404"
+    },
+    {
+      "path": "memory_system/cognitive/COGNITIVE_EVOLUTION.md",
+      "error": "上传失败，状态码：404"
+    }
+  ],
+  "skipped_files_list": []
+}

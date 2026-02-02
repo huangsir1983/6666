@@ -1,13 +1,18 @@
 {
   "clock_version": "1.0.0",
   "started_at": "2026-02-02T17:29:31.716126+08:00",
-  "current_time": "2026-02-02T17:29:31.717410+08:00",
+  "current_time": "2026-02-02T18:29:31.718121+08:00",
   "timezone": "GMT+8 (Beijing)",
-  "sync_count": 1,
+  "sync_count": 2,
   "sync_history": [
     {
       "sync_time": "2026-02-02T17:29:31.717402+08:00",
       "sync_count": 1,
+      "concept_level": 1
+    },
+    {
+      "sync_time": "2026-02-02T18:29:31.718103+08:00",
+      "sync_count": 2,
       "concept_level": 1
     }
   ],

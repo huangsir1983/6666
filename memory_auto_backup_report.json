@@ -1,0 +1,101 @@
+{
+  "backup_time": "2026-02-02T18:43:31.326594+08:00",
+  "workspace": "/root/.openclaw/workspace",
+  "memory_dir": "/root/.openclaw/workspace/memory_system",
+  "repo_owner": "huangsir1983",
+  "repo_name": "6666",
+  "branch": "main",
+  "total_files": 21,
+  "uploaded_files": 20,
+  "failed_files": 1,
+  "skipped_files": 0,
+  "uploaded_files_list": [
+    {
+      "path": "memory_system/core/SESSION_MEMORY.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/core/TASKS.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/core/DECISIONS.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/knowledge/KNOWLEDGE_BASE.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/knowledge/LESSONS_LEARNED.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/knowledge/NETWORK_LEARNING.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/skills/SKILLS.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/skills/CHEATSHEETS.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/skills/QUICK_STARTS.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/skills/WORKFLOWS.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/skills/WEB_SCRAPING.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/skills/DOWNLOADED_SKILLS.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/skills/SKILLS_LEARNING_RECORD.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/daily/SELF_ITERATION.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/daily/DAILY_SUMMARY.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/daily/DAILY_PROGRESS.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/reborn/REBORN_SKILL.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/reborn/REBORN_GUIDE.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/reborn/QUICK_START_REBORN.md",
+      "sha": ""
+    },
+    {
+      "path": "memory_system/cognitive/COGNITIVE_EVOLUTION.md",
+      "sha": ""
+    }
+  ],
+  "failed_files_list": [
+    {
+      "path": "memory_system/core/CONTEXT.md",
+      "error": "上传失败，状态码：409"
+    }
+  ],
+  "skipped_files_list": []
+}

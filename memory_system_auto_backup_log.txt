@@ -1,0 +1,75 @@
+[2026-02-02 18:36:42] [AUTO-BACKUP] ============================================================
+[2026-02-02 18:36:42] [AUTO-BACKUP] 💾 记忆系统自动备份 - 开始
+[2026-02-02 18:36:42] [AUTO-BACKUP] ============================================================
+[2026-02-02 18:36:42] [AUTO-BACKUP] 
+📋 第一步：查找记忆系统文件...
+[2026-02-02 18:36:42] [AUTO-BACKUP]    找到 21 个 Markdown 文件
+[2026-02-02 18:36:42] [AUTO-BACKUP]    找到 21 个文件（Markdown + JSON）
+[2026-02-02 18:36:42] [AUTO-BACKUP] 
+📤 第二步：上传文件到 GitHub...
+[2026-02-02 18:36:43] [AUTO-BACKUP]    ❌ 上传失败：memory_system/core/SESSION_MEMORY.md
+[2026-02-02 18:36:43] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:44] [AUTO-BACKUP]    ❌ 上传失败：memory_system/core/TASKS.md
+[2026-02-02 18:36:44] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:45] [AUTO-BACKUP]    ❌ 上传失败：memory_system/core/CONTEXT.md
+[2026-02-02 18:36:45] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:46] [AUTO-BACKUP]    ❌ 上传失败：memory_system/core/DECISIONS.md
+[2026-02-02 18:36:46] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:47] [AUTO-BACKUP]    ❌ 上传失败：memory_system/knowledge/KNOWLEDGE_BASE.md
+[2026-02-02 18:36:47] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:48] [AUTO-BACKUP]    ❌ 上传失败：memory_system/knowledge/LESSONS_LEARNED.md
+[2026-02-02 18:36:48] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:49] [AUTO-BACKUP]    ❌ 上传失败：memory_system/knowledge/NETWORK_LEARNING.md
+[2026-02-02 18:36:49] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:50] [AUTO-BACKUP]    ❌ 上传失败：memory_system/skills/SKILLS.md
+[2026-02-02 18:36:50] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:52] [AUTO-BACKUP]    ❌ 上传失败：memory_system/skills/CHEATSHEETS.md
+[2026-02-02 18:36:52] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:53] [AUTO-BACKUP]    ❌ 上传失败：memory_system/skills/QUICK_STARTS.md
+[2026-02-02 18:36:53] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:55] [AUTO-BACKUP]    ❌ 上传失败：memory_system/skills/WORKFLOWS.md
+[2026-02-02 18:36:55] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:56] [AUTO-BACKUP]    ❌ 上传失败：memory_system/skills/WEB_SCRAPING.md
+[2026-02-02 18:36:56] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:57] [AUTO-BACKUP]    ❌ 上传失败：memory_system/skills/DOWNLOADED_SKILLS.md
+[2026-02-02 18:36:57] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:36:58] [AUTO-BACKUP]    ❌ 上传失败：memory_system/skills/SKILLS_LEARNING_RECORD.md
+[2026-02-02 18:36:58] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:37:00] [AUTO-BACKUP]    ❌ 上传失败：memory_system/daily/SELF_ITERATION.md
+[2026-02-02 18:37:00] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:37:01] [AUTO-BACKUP]    ❌ 上传失败：memory_system/daily/DAILY_SUMMARY.md
+[2026-02-02 18:37:01] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:37:02] [AUTO-BACKUP]    ❌ 上传失败：memory_system/daily/DAILY_PROGRESS.md
+[2026-02-02 18:37:02] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:37:03] [AUTO-BACKUP]    ❌ 上传失败：memory_system/reborn/REBORN_SKILL.md
+[2026-02-02 18:37:03] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:37:04] [AUTO-BACKUP]    ❌ 上传失败：memory_system/reborn/REBORN_GUIDE.md
+[2026-02-02 18:37:04] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:37:05] [AUTO-BACKUP]    ❌ 上传失败：memory_system/reborn/QUICK_START_REBORN.md
+[2026-02-02 18:37:05] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:37:06] [AUTO-BACKUP]    ❌ 上传失败：memory_system/cognitive/COGNITIVE_EVOLUTION.md
+[2026-02-02 18:37:06] [AUTO-BACKUP]       错误：上传失败，状态码：404
+[2026-02-02 18:37:06] [AUTO-BACKUP] 
+📊 第三步：保存备份报告...
+[2026-02-02 18:37:06] [AUTO-BACKUP]    ✅ 备份报告已保存到 /root/.openclaw/workspace/memory_system_auto_backup_report.json
+[2026-02-02 18:37:06] [AUTO-BACKUP] 
+📤 第四步：上传备份报告到 GitHub...
+[2026-02-02 18:37:06] [AUTO-BACKUP]    ❌ 备份报告上传失败
+[2026-02-02 18:37:06] [AUTO-BACKUP] 
+============================================================
+[2026-02-02 18:37:06] [AUTO-BACKUP] ✅ 记忆系统自动备份完成！
+[2026-02-02 18:37:06] [AUTO-BACKUP] ============================================================
+[2026-02-02 18:37:06] [AUTO-BACKUP] 
+📊 备份统计：
+[2026-02-02 18:37:06] [AUTO-BACKUP]    总文件数：21
+[2026-02-02 18:37:06] [AUTO-BACKUP]    已上传：0
+[2026-02-02 18:37:06] [AUTO-BACKUP]    失败：21
+[2026-02-02 18:37:06] [AUTO-BACKUP]    跳过：0
+[2026-02-02 18:37:06] [AUTO-BACKUP] 
+💡 备份报告：
+[2026-02-02 18:37:06] [AUTO-BACKUP]    /root/.openclaw/workspace/memory_system_auto_backup_report.json
+[2026-02-02 18:37:06] [AUTO-BACKUP]    GitHub：https://github.com/huangsir1983/6666/blob/master/memory_system_auto_backup_report.json
+[2026-02-02 18:37:06] [AUTO-BACKUP] 
+🚀 下次备份：
+[2026-02-02 18:37:06] [AUTO-BACKUP]    运行：python3 memory_system_auto_backup.py
+[2026-02-02 18:37:06] [AUTO-BACKUP]    或者使用 Cron 定时任务自动运行
