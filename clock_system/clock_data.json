@@ -13,8 +13,17 @@
       "gmt_sync_time": "2026-02-02T09:30:09.899133+00:00",
       "sync_count": 1,
       "gmt_sync_count": 1
+    },
+    {
+      "sync_time": "2026-02-02T17:55:43.508706+08:00",
+      "gmt_sync_time": "2026-02-02T09:55:43.508707+00:00",
+      "sync_count": 1,
+      "gmt_sync_count": 1,
+      "time_diff_hours": 8
     }
   ],
   "timezone": "GMT+8 (Beijing)",
-  "gmt_timezone": "GMT (Greenwich Mean Time)"
+  "gmt_timezone": "GMT (Greenwich Mean Time)",
+  "current_time": "2026-02-02T17:55:43.508721+08:00",
+  "gmt_current_time": "2026-02-02T09:55:43.508707+00:00"
 }
