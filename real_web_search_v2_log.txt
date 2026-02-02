@@ -1,0 +1,35 @@
+[2026-02-02 21:25:56] [REAL-WEB-SEARCH-V2] ============================================================
+[2026-02-02 21:25:56] [REAL-WEB-SEARCH-V2] 🕵️ 实时网络搜索 V2 - 开始（真实数据版本）
+[2026-02-02 21:25:56] [REAL-WEB-SEARCH-V2] ============================================================
+[2026-02-02 21:25:56] [REAL-WEB-SEARCH-V2] 
+🔍 [GitHub 全局] 搜索: langchain agent
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    ✅ 找到 10 个结果
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] 
+🔍 [Hacker News 故事] 搜索: AI agent evolution
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    ✅ 找到 10 个结果
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] 
+🔍 [Hacker News 故事] 搜索: AI赚钱
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    ✅ 找到 0 个结果
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] 
+🔍 [TDS] 抓取最新文章
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    ❌ 抓取失败，状态码：403
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] 
+🔍 开始分析和筛选优质内容...
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    ✅ 筛选后剩余 10 个结果
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] 
+💾 保存到学习系统...
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    ✅ 学习结果已保存到 /root/.openclaw/workspace/memory_system/learning/WEB_LEARNING_RESULTS_20260202_212557.md
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] 
+============================================================
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] ✅ 实时网络搜索 V2 完成！
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] ============================================================
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] 
+📊 搜索统计：
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    GitHub 全局搜索：10 个结果
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    Hacker News 故事搜索：10 个结果
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    TDS 抓取：0 个结果
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    总计：20 个结果
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    筛选后：10 个结果
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2] 
+🔗 学习结果文件：
+[2026-02-02 21:25:57] [REAL-WEB-SEARCH-V2]    /root/.openclaw/workspace/memory_system/learning/WEB_LEARNING_RESULTS_20260202_212557.md

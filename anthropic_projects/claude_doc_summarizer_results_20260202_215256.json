@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "text": "Opus 4.5 is not normal AI agent experience that I have had thus far",
+    "summary": "\n            **摘要：** Opus 4.5 的性能提升远超预期，特别是在代理任务上。\n            **关键点：**\n            1. Mid-brain takes on software and AI\n            2. The model is not just a better version of Claude 3.5, it's a different model entirely\n            3. It's a much stronger agent\n            **思维导图：**\n            - 性能提升\n              - 代理任务\n              - 模型不同\n              - 更强代理\n            "
+  },
+  {
+    "id": 2,
+    "text": "Windows 11 adds AI agent that runs in background with access to personal folders",
+    "summary": "\n            **摘要：** AI 代理正在被集成到操作系统中（如 Windows 11），并且将访问个人文件夹。\n            **关键点：**\n            1. Microsoft is planning to add an AI agent that runs in background\n            2. It will have access to personal folders\n            3. There are security risks\n            **思维导图：**\n            - 操作系统集成\n              - Windows 11\n                - AI 代理\n                - 后台运行\n                - 访问个人文件夹\n                - 安全风险\n            "
+  },
+  {
+    "id": 3,
+    "text": "Building Effective AI Agents",
+    "summary": "\n            **摘要：** 构建有效的 AI 代理需要特定的工程技巧，而不仅仅是强大的模型。\n            **关键点：**\n            1. Tool use (工具使用)\n            2. Memory (记忆)\n            3. Planning (规划)\n            4. Execution (执行)\n            **思维导图：**\n            - 构建有效 AI 代理\n              - 工程技巧\n                - 工具调用\n                - 记忆管理\n                - 任务规划\n                - 任务执行\n            "
+  }
+]
