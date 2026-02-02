@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 产品描述生成器</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 AI 产品描述生成器</h1>
+            <p class="subtitle">自动生成吸引人的产品描述，提升转化率</p>
+        </header>
+
+        <div class="form-section">
+            <h2>生成产品描述</h2>
+            <form id="descForm">
+                <div class="form-group">
+                    <label for="productName">产品名称 *</label>
+                    <input type="text" id="productName" placeholder="例如：智能手表 Pro" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="productFeatures">产品特点</label>
+                    <textarea id="productFeatures" rows="3" placeholder="例如：7天续航、心率监测、防水IP68..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="descriptionType">描述类型</label>
+                        <select id="descriptionType">
+                            <option value="product">产品描述</option>
+                            <option value="feature">功能特点</option>
+                            <option value="marketing">营销文案</option>
+                            <option value="seo">SEO 描述</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="platform">发布平台</label>
+                        <select id="platform">
+                            <option value="ecommerce">电商平台</option>
+                            <option value="website">官网</option>
+                            <option value="social">社交媒体</option>
+                            <option value="app">移动应用</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tone">语气风格</label>
+                    <select id="tone">
+                        <option value="professional">专业正式</option>
+                        <option value="friendly">亲切友好</option>
+                        <option value="casual">轻松随意</option>
+                        <option value="exciting">激动人心</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="generateBtn">
+                    <span id="btnText">🚀 生成描述</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h2>生成结果</h2>
+            <div class="result-card">
+                <div class="result-content">
+                    <pre id="descContent"></pre>
+                </div>
+                <div class="result-actions">
+                    <button class="btn btn-secondary" onclick="copyDesc()">📋 复制</button>
+                    <button class="btn btn-secondary" onclick="clearResult()">🗑️ 清空</button>
+                </div>
+            </div>
+
+            <div class="batch-section" id="batchSection" style="display: none;">
+                <h3>批量生成</h3>
+                <div class="form-group">
+                    <label for="platforms">平台列表</label>
+                    <input type="text" id="platforms" placeholder="电商平台,官网,社交媒体" value="电商平台,官网,社交媒体">
+                </div>
+                <button class="btn btn-secondary" onclick="generateBatch()">🔄 批量生成</button>
+
+                <div class="batch-results" id="batchResults"></div>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h3>💡 使用技巧</h3>
+            <ul>
+                <li>产品特点要突出核心价值</li>
+                <li>根据不同平台选择合适的描述风格</li>
+                <li>电商平台要突出优惠和转化</li>
+                <li>官网要突出品牌和专业性</li>
+                <li>社交媒体要轻松有趣，吸引注意</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>© 2026 AI 工具箱 | <a href="http://your-server:8081/">返回主页</a></p>
+        </footer>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
