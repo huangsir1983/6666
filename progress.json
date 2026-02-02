@@ -1,0 +1,48 @@
+{
+  "last_update": "2026-02-02T08:25:23.839801",
+  "services": {
+    "proxy": {
+      "status": "running",
+      "port": 8080,
+      "model_mapping": {
+        "claude-haiku-4-5-20251001": "glm-4.7",
+        "claude-sonnet-4-5-20250929": "glm-4.7",
+        "claude-opus-4-5-20250929": "glm-4.7"
+      },
+      "cache_size": 0
+    },
+    "http_server": {
+      "status": "running",
+      "port": 8081
+    },
+    "auth": {
+      "status": "running",
+      "port": 8082,
+      "service": "auth"
+    },
+    "scheduler": {
+      "status": "running",
+      "pids": [
+        "112193",
+        "134084",
+        "134086"
+      ]
+    }
+  },
+  "files": {
+    "md_files": 49,
+    "py_files": 13,
+    "html_files": 12,
+    "total_files": 74
+  },
+  "git": {
+    "commits": 13,
+    "latest": "1113353ed4b92035891ee288b4b7539f3063fe79 Add daily hourly progress report scheduler"
+  },
+  "progress": {
+    "total_tasks": 33,
+    "completed_tasks": 26,
+    "progress_percent": 78.8,
+    "remaining_tasks": 7
+  }
+}

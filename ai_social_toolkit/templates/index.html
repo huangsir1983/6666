@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 社交媒体内容生成器</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📱 AI 社交媒体内容生成器</h1>
+            <p class="subtitle">自动生成吸引人的社交媒体内容</p>
+        </header>
+
+        <div class="form-section">
+            <h2>生成社媒内容</h2>
+            <form id="socialForm">
+                <div class="form-group">
+                    <label for="topic">主题 *</label>
+                    <input type="text" id="topic" placeholder="例如：AI 编程助手" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="platform">平台</label>
+                        <select id="platform">
+                            <option value="weibo">微博</option>
+                            <option value="wechat">朋友圈</option>
+                            <option value="xiaohongshu">小红书</option>
+                            <option value="douyin">抖音</option>
+                            <option value="bilibili">B站</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="contentType">内容类型</label>
+                        <select id="contentType">
+                            <option value="promotional">推广</option>
+                            <option value="share">分享</option>
+                            <option value="tutorial">教程</option>
+                            <option value="discussion">讨论</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tone">语气风格</label>
+                    <select id="tone">
+                        <option value="casual">轻松随意</option>
+                        <option value="friendly">亲切友好</option>
+                        <option value="professional">专业正式</option>
+                        <option value="humorous">幽默有趣</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="generateBtn">
+                    <span id="btnText">📱 生成内容</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h2>生成结果</h2>
+            <div class="result-card">
+                <div class="result-content">
+                    <pre id="contentOutput"></pre>
+                </div>
+                <div class="result-actions">
+                    <button class="btn btn-secondary" onclick="copyContent()">📋 复制</button>
+                    <button class="btn btn-secondary" onclick="clearResult()">🗑️ 清空</button>
+                </div>
+            </div>
+
+            <div class="batch-section" id="batchSection" style="display: none;">
+                <h3>🔄 批量生成</h3>
+                <div class="form-group">
+                    <label for="platforms">平台列表</label>
+                    <input type="text" id="platforms" value="weibo,wechat,xiaohongshu,douyin">
+                </div>
+                <button class="btn btn-secondary" onclick="generateBatch()">🔄 批量生成</button>
+                <div class="batch-results" id="batchResults"></div>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h3>💡 使用技巧</h3>
+            <ul>
+                <li>主题要明确具体，越明确效果越好</li>
+                <li>根据不同平台选择合适的风格</li>
+                <li>微博要短小精悍，小红书要详细分享</li>
+                <li>抖音要有趣吸引人，B站要技术专业</li>
+                <li>批量生成可以获得多个版本，选择最好的使用</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>© 2026 AI 工具箱 | <a href="http://your-server:8081/">返回主页</a></p>
+        </footer>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

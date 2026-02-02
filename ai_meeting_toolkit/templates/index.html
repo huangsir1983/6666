@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 会议记录总结工具</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 AI 会议记录总结工具</h1>
+            <p class="subtitle">自动总结会议记录，提取行动项</p>
+        </header>
+
+        <div class="form-section">
+            <h2>总结会议记录</h2>
+            <form id="meetingForm">
+                <div class="form-group">
+                    <label for="meetingContent">会议记录内容 *</label>
+                    <textarea id="meetingContent" rows="10" placeholder="粘贴会议记录文本..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="summaryType">总结类型</label>
+                        <select id="summaryType">
+                            <option value="brief">简短总结</option>
+                            <option value="action_items">行动项清单</option>
+                            <option value="full">完整总结</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="outputFormat">输出格式</label>
+                        <select id="outputFormat">
+                            <option value="markdown">Markdown</option>
+                            <option value="text">纯文本</option>
+                            <option value="html">HTML</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="summarizeBtn">
+                    <span id="btnText">📝 总结会议</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h2>总结结果</h2>
+            <div class="result-card">
+                <div class="result-content">
+                    <pre id="summaryContent"></pre>
+                </div>
+                <div class="result-actions">
+                    <button class="btn btn-secondary" onclick="copySummary()">📋 复制</button>
+                    <button class="btn btn-secondary" onclick="extractActionItems()">✨ 提取行动项</button>
+                    <button class="btn btn-secondary" onclick="clearResult()">🗑️ 清空</button>
+                </div>
+            </div>
+
+            <div class="action-section" id="actionSection" style="display: none;">
+                <h3>📋 行动项清单</h3>
+                <div class="action-items" id="actionItems"></div>
+                <button class="btn btn-secondary" onclick="exportActionItems()">📥 导出行动项</button>
+            </div>
+
+            <div class="batch-section" id="batchSection" style="display: none;">
+                <h3>🔄 批量生成</h3>
+                <div class="form-group">
+                    <label for="summaryTypes">总结类型列表</label>
+                    <input type="text" id="summaryTypes" value="brief,action_items,full" placeholder="用逗号分隔">
+                </div>
+                <button class="btn btn-secondary" onclick="generateBatch()">🔄 批量生成</button>
+
+                <div class="batch-results" id="batchResults"></div>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h3>💡 使用技巧</h3>
+            <ul>
+                <li>完整的会议记录能生成更准确的总结</li>
+                <li>选择合适的总结类型：简短总结适合快速浏览，行动项清单适合跟踪执行</li>
+                <li>完整的总结适合存档和回顾</li>
+                <li>批量生成可以获得多个版本，选择最好的使用</li>
+                <li>提取行动项后可以手动调整负责人和截止日期</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>© 2026 AI 工具箱 | <a href="http://your-server:8081/">返回主页</a></p>
+        </footer>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

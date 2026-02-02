@@ -1,0 +1,136 @@
+{
+  "name": "小智AI助手",
+  "description": "专业的AI开发助手，帮助用户快速构建AI应用",
+  "avatar": "🤖",
+  "background_color": "#667eea",
+  "text_color": "#ffffff",
+  "skills": [
+    {
+      "id": "ai_toolkit",
+      "name": "AI 工具箱",
+      "description": "AI API 服务平台，提供 Claude Code 代理、用户认证、应用套件",
+      "icon": "🧰",
+      "color": "#FF6B6B"
+    },
+    {
+      "id": "quick_monetization",
+      "name": "快速变现项目",
+      "description": "AI 邮件营销、产品描述生成、会议总结、社媒内容、SEO内容",
+      "icon": "💰",
+      "color": "#4ECDC4"
+    },
+    {
+      "id": "code_generation",
+      "name": "代码生成",
+      "description": "Python、JavaScript、前端、后端全栈代码生成",
+      "icon": "💻",
+      "color": "#45B7D1"
+    },
+    {
+      "id": "project_management",
+      "name": "项目管理",
+      "description": "AI 项目规划、进度跟踪、任务分配",
+      "icon": "📋",
+      "color": "#96CEB4"
+    },
+    {
+      "id": "troubleshooting",
+      "name": "故障排查",
+      "description": "技术问题诊断、错误修复、性能优化",
+      "icon": "🔧",
+      "color": "#FFA07A"
+    },
+    {
+      "id": "documentation",
+      "name": "文档写作",
+      "description": "README、API 文档、使用指南、技术博客",
+      "icon": "📝",
+      "color": "#F7B731"
+    }
+  ],
+  "examples": [
+    {
+      "skill": "ai_toolkit",
+      "prompt": "帮我搭建一个 AI API 服务",
+      "response": "我可以帮你搭建一个完整的 AI API 服务，包括：\n\n1. Claude Code 代理服务\n2. 用户认证系统\n3. 完整的应用套件\n4. 自动化监控\n\n需要从零开始吗？"
+    },
+    {
+      "skill": "quick_monetization",
+      "prompt": "帮我开发一个快速变现项目",
+      "response": "我可以帮你快速开发一个 AI 变现项目，比如：\n\n1. AI 邮件营销工具\n2. AI 产品描述生成器\n3. AI 会议记录总结工具\n\n你想开发哪个？"
+    },
+    {
+      "skill": "code_generation",
+      "prompt": "写一个 Python 快速排序",
+      "response": "这是 Python 快速排序的实现：\n\n```python\ndef quick_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quick_sort(left) + middle + quick_sort(right)\n```\n\n需要测试用例吗？"
+    }
+  ],
+  "pricing": {
+    "free": {
+      "name": "免费版",
+      "description": "基础技术支持",
+      "limits": ["每天10个问题", "社区支持"]
+    },
+    "basic": {
+      "name": "基础版",
+      "price": "¥99/月",
+      "description": "优先响应 + 代码审查",
+      "features": ["每天50个问题", "邮件支持", "代码审查", "技术咨询"]
+    },
+    "pro": {
+      "name": "专业版",
+      "price": "¥299/月",
+      "description": "专属支持 + 项目开发",
+      "features": ["无限问题", "7x24支持", "项目开发", "技术顾问", "定期会议"]
+    }
+  },
+  "contact": {
+    "email": "contact@example.com",
+    "wechat": "AI_Toolbox_Official",
+    "github": "https://github.com/your-username/ai-toolkit"
+  },
+  "social_media": {
+    "weibo": "https://weibo.com/ai-toolkit",
+    "weixin": "AI_Toolbox_Official",
+    "bilibili": "https://bilibili.com/ai-toolkit",
+    "zhihu": "https://zhihu.com/people/ai-toolkit"
+  },
+  "projects": {
+    "main": {
+      "name": "AI 工具箱",
+      "url": "https://github.com/your-username/ai-toolkit",
+      "description": "AI API 服务平台",
+      "stars": 50
+    },
+    "quick_monetization": {
+      "name": "AI 邮件营销工具",
+      "url": "http://your-server:8083/",
+      "description": "自动生成营销邮件",
+      "monthly_users": 20
+    },
+    "ai_meeting_toolkit": {
+      "name": "AI 会议记录总结工具",
+      "url": "http://your-server:8085/",
+      "description": "自动总结会议记录",
+      "monthly_users": 15
+    },
+    "ai_social_toolkit": {
+      "name": "AI 社交媒体内容生成器",
+      "url": "http://your-server:8086/",
+      "description": "自动生成社媒内容",
+      "monthly_users": 12
+    },
+    "ai_seo_toolkit": {
+      "name": "AI SEO 内容生成器",
+      "url": "http://your-server:8087/",
+      "description": "自动生成SEO文章",
+      "monthly_users": 10
+    }
+  },
+  "support": {
+    "response_time": "通常5-10分钟",
+    "availability": "7x24",
+    "languages": ["Python", "JavaScript", "HTML/CSS", "SQL", "Shell"],
+    "specialties": ["AI开发", "API设计", "全栈开发", "性能优化", "文档写作"]
+  }
+}
