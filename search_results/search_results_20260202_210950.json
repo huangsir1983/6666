@@ -1,0 +1,90 @@
+{
+  "query": "AI 代理进化",
+  "sources": [
+    "memory"
+  ],
+  "memory_results": [
+    {
+      "title": "AI_EVOLUTION_PLAN.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/knowledge/AI_EVOLUTION_PLAN.md",
+      "relative_path": "memory_system/knowledge/AI_EVOLUTION_PLAN.md",
+      "category": "knowledge",
+      "score": 15,
+      "word_count": 690
+    },
+    {
+      "title": "DAILY_SUMMARY.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/daily/DAILY_SUMMARY.md",
+      "relative_path": "memory_system/daily/DAILY_SUMMARY.md",
+      "category": "daily",
+      "score": 15,
+      "word_count": 553
+    },
+    {
+      "title": "DAILY_PROGRESS.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/daily/DAILY_PROGRESS.md",
+      "relative_path": "memory_system/daily/DAILY_PROGRESS.md",
+      "category": "daily",
+      "score": 15,
+      "word_count": 1159
+    },
+    {
+      "title": "SKILLS.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/skills/SKILLS.md",
+      "relative_path": "memory_system/skills/SKILLS.md",
+      "category": "skills",
+      "score": 10,
+      "word_count": 917
+    },
+    {
+      "title": "SKILLS_LEARNING_RECORD.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/skills/SKILLS_LEARNING_RECORD.md",
+      "relative_path": "memory_system/skills/SKILLS_LEARNING_RECORD.md",
+      "category": "skills",
+      "score": 10,
+      "word_count": 750
+    },
+    {
+      "title": "DAY_0_EXECUTION_REPORT.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/daily/DAY_0_EXECUTION_REPORT.md",
+      "relative_path": "memory_system/daily/DAY_0_EXECUTION_REPORT.md",
+      "category": "daily",
+      "score": 10,
+      "word_count": 914
+    },
+    {
+      "title": "COGNITIVE_EVOLUTION.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/cognitive/COGNITIVE_EVOLUTION.md",
+      "relative_path": "memory_system/cognitive/COGNITIVE_EVOLUTION.md",
+      "category": "cognitive",
+      "score": 10,
+      "word_count": 715
+    },
+    {
+      "title": "COGNITIVE_EVOLUTION_V1_6.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/cognitive/COGNITIVE_EVOLUTION_V1_6.md",
+      "relative_path": "memory_system/cognitive/COGNITIVE_EVOLUTION_V1_6.md",
+      "category": "cognitive",
+      "score": 10,
+      "word_count": 542
+    },
+    {
+      "title": "SESSION_MEMORY.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/core/SESSION_MEMORY.md",
+      "relative_path": "memory_system/core/SESSION_MEMORY.md",
+      "category": "core",
+      "score": 5,
+      "word_count": 744
+    },
+    {
+      "title": "TASKS.md",
+      "filepath": "/root/.openclaw/workspace/memory_system/core/TASKS.md",
+      "relative_path": "memory_system/core/TASKS.md",
+      "category": "core",
+      "score": 5,
+      "word_count": 940
+    }
+  ],
+  "github_results": [],
+  "v2ex_results": []
+}
