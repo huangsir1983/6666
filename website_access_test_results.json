@@ -1,0 +1,145 @@
+{
+  "test_time": "2026-02-02T20:22:53.971522+08:00",
+  "total_websites": 15,
+  "accessible_count": 8,
+  "inaccessible_count": 7,
+  "accessible_websites": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/",
+      "category": "代码托管",
+      "status_code": 200,
+      "success": true,
+      "response_time": 0.037699,
+      "content_length": 558821
+    },
+    {
+      "name": "Google",
+      "url": "https://www.google.com/",
+      "category": "搜索引擎",
+      "status_code": 200,
+      "success": true,
+      "response_time": 0.228187,
+      "content_length": 79628
+    },
+    {
+      "name": "V2EX",
+      "url": "https://www.v2ex.com/",
+      "category": "中文技术社区",
+      "status_code": 200,
+      "success": true,
+      "response_time": 0.257091,
+      "content_length": 105542
+    },
+    {
+      "name": "掘金",
+      "url": "https://juejin.cn/",
+      "category": "中文技术社区",
+      "status_code": 200,
+      "success": true,
+      "response_time": 0.117656,
+      "content_length": 2397
+    },
+    {
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/",
+      "category": "计算机科学新闻",
+      "status_code": 200,
+      "success": true,
+      "response_time": 0.720451,
+      "content_length": 34930
+    },
+    {
+      "name": "Python",
+      "url": "https://www.python.org/",
+      "category": "编程语言",
+      "status_code": 200,
+      "success": true,
+      "response_time": 0.03226,
+      "content_length": 48171
+    },
+    {
+      "name": "Flask",
+      "url": "https://flask.palletsprojects.com/",
+      "category": "Web 框架",
+      "status_code": 200,
+      "success": true,
+      "response_time": 0.030481,
+      "content_length": 39598
+    },
+    {
+      "name": "LangChain",
+      "url": "https://python.langchain.com/",
+      "category": "AI 框架",
+      "status_code": 200,
+      "success": true,
+      "response_time": 0.104356,
+      "content_length": 555627
+    }
+  ],
+  "inaccessible_websites": [
+    {
+      "name": "Wikipedia",
+      "url": "https://www.wikipedia.org/",
+      "category": "百科全书",
+      "status_code": 403,
+      "success": false,
+      "response_time": 0.029992,
+      "content_length": 126
+    },
+    {
+      "name": "Stack Overflow",
+      "url": "https://stackoverflow.com/",
+      "category": "技术问答",
+      "status_code": 403,
+      "success": false,
+      "response_time": 0.129588,
+      "content_length": 6981
+    },
+    {
+      "name": "Reddit",
+      "url": "https://www.reddit.com/",
+      "category": "社交新闻",
+      "status_code": 403,
+      "success": false,
+      "response_time": 0.036489,
+      "content_length": 190240
+    },
+    {
+      "name": "Medium",
+      "url": "https://medium.com/",
+      "category": "博客平台",
+      "status_code": 403,
+      "success": false,
+      "response_time": 0.047457,
+      "content_length": 6932
+    },
+    {
+      "name": "OpenAI",
+      "url": "https://openai.com/",
+      "category": "AI 公司",
+      "status_code": 403,
+      "success": false,
+      "response_time": 0.05144,
+      "content_length": 11639
+    },
+    {
+      "name": "知乎",
+      "url": "https://www.zhihu.com/",
+      "category": "中文问答社区",
+      "status_code": 403,
+      "success": false,
+      "response_time": 0.148545,
+      "content_length": 214
+    },
+    {
+      "name": "CSDN",
+      "url": "https://www.csdn.net/",
+      "category": "中文技术社区",
+      "status_code": 521,
+      "success": false,
+      "response_time": 2.103203,
+      "content_length": 2014
+    }
+  ]
+}
