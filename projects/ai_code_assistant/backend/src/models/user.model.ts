@@ -46,6 +46,28 @@ const userSchema = new Schema<IUserDocument>(
   }
 );
 
+// 密码加密中间件（保存前）
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) return next();
+  
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (error: any) {
+    next(error);
+  }
+});
+
+// 密码比较方法
+userSchema.methods.comparePassword = async function(candidatePassword: string): Promise<boolean> {
+  try {
+    return await bcrypt.compare(candidatePassword, this.password);
+  } catch (error: any) {
+    return false;
+  }
+};
+
 // 用户模型
 const UserModel = model<IUserDocument>('User', userSchema);
 
