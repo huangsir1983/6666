@@ -1,9 +1,9 @@
 {
   "clock_version": "1.0.0",
   "started_at": "2026-02-02T17:29:31.716126+08:00",
-  "current_time": "2026-02-02T23:29:31.723216+08:00",
+  "current_time": "2026-02-03T11:29:31.736301+08:00",
   "timezone": "GMT+8 (Beijing)",
-  "sync_count": 7,
+  "sync_count": 19,
   "sync_history": [
     {
       "sync_time": "2026-02-02T17:29:31.717402+08:00",
@@ -39,10 +39,70 @@
       "sync_time": "2026-02-02T23:29:31.723199+08:00",
       "sync_count": 7,
       "concept_level": 1
+    },
+    {
+      "sync_time": "2026-02-03T00:29:31.724132+08:00",
+      "sync_count": 8,
+      "concept_level": 1
+    },
+    {
+      "sync_time": "2026-02-03T01:29:31.725131+08:00",
+      "sync_count": 9,
+      "concept_level": 1
+    },
+    {
+      "sync_time": "2026-02-03T02:29:31.726093+08:00",
+      "sync_count": 10,
+      "concept_level": 1
+    },
+    {
+      "sync_time": "2026-02-03T03:29:31.727443+08:00",
+      "sync_count": 11,
+      "concept_level": 2
+    },
+    {
+      "sync_time": "2026-02-03T04:29:31.728429+08:00",
+      "sync_count": 12,
+      "concept_level": 2
+    },
+    {
+      "sync_time": "2026-02-03T05:29:31.729484+08:00",
+      "sync_count": 13,
+      "concept_level": 2
+    },
+    {
+      "sync_time": "2026-02-03T06:29:31.731016+08:00",
+      "sync_count": 14,
+      "concept_level": 2
+    },
+    {
+      "sync_time": "2026-02-03T07:29:31.732059+08:00",
+      "sync_count": 15,
+      "concept_level": 2
+    },
+    {
+      "sync_time": "2026-02-03T08:29:31.733003+08:00",
+      "sync_count": 16,
+      "concept_level": 2
+    },
+    {
+      "sync_time": "2026-02-03T09:29:31.733977+08:00",
+      "sync_count": 17,
+      "concept_level": 2
+    },
+    {
+      "sync_time": "2026-02-03T10:29:31.735177+08:00",
+      "sync_count": 18,
+      "concept_level": 2
+    },
+    {
+      "sync_time": "2026-02-03T11:29:31.736285+08:00",
+      "sync_count": 19,
+      "concept_level": 2
     }
   ],
   "concept_evolution": {
-    "current_level": 1,
+    "current_level": 2,
     "levels": {
       "1": "基础时间概念",
       "2": "时间区域理解",
@@ -50,6 +110,13 @@
       "4": "时间管理与优化",
       "5": "时间哲学与规划"
     },
-    "milestones": []
+    "milestones": [
+      {
+        "level": 2,
+        "concept_name": "时间区域理解",
+        "achieved_at": "2026-02-03T02:29:31.726112+08:00",
+        "sync_count": 10
+      }
+    ]
   }
 }

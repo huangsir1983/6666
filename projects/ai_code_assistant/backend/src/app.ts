@@ -1,22 +1,47 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import codeRoutes from './routes/code.routes';
-import { errorMiddleware } from './middleware/error.middleware';
+import mongoose from 'mongoose';
+import path from 'path';
+import fs from 'fs';
 
+// 导入路由
+import codeRouter from './routes/code.routes';
+import authRouter from './routes/auth.routes';
+
+// 导入中间件
+import { authMiddleware } from './middleware/auth.middleware';
+import { errorHandler } from './middleware/error.middleware';
+
+// 导入配置
+import { connectDB } from './config/database.config';
+import { claudeConfig } from './config/claude.config';
+
+// 加载环境变量
 dotenv.config();
 
+// 创建 Express 应用
 const app: Application = express();
-const PORT = process.env.PORT || 3000;
 
-// 中间件
+// 中间件配置
 app.use(helmet()); // 安全头
-app.use(cors()); // CORS
-app.use(morgan('dev')); // 日志
-app.use(express.json()); // 解析 JSON
-app.use(express.urlencoded({ extended: true })); // 解析 URL 编码
+app.use(cors()); // 跨域资源共享
+app.use(express.json()); // JSON 请求解析
+app.use(express.urlencoded({ extended: true })); // URL 编码请求解析
+app.use(morgan('dev')); // 日志中间件（开发环境）
+
+// 静态文件
+const uploadsDir = path.join(__dirname, '..', 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+app.use('/uploads', express.static(uploadsDir));
+
+// 路由
+app.use('/api/code', codeRouter);
+app.use('/api/auth', authRouter);
 
 // 健康检查
 app.get('/health', (req: Request, res: Response) => {
@@ -27,22 +52,56 @@ app.get('/health', (req: Request, res: Response) => {
   });
 });
 
-// API 路由
-app.use('/api/v1/code', codeRoutes);
-
-// 错误处理
-app.use(errorMiddleware);
+// 根路径
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    message: 'OpenClaw Code Assistant API',
+    version: '1.0.0',
+    endpoints: {
+      health: '/health',
+      code: '/api/code',
+      auth: '/api/auth',
+    },
+  });
+});
 
 // 404 处理
 app.use((req: Request, res: Response) => {
-  res.status(404).json({ error: '路由不存在' });
+  res.status(404).json({
+    success: false,
+    message: 'Endpoint not found',
+  });
 });
 
+// 错误处理中间件（必须在最后）
+app.use(errorHandler);
+
+// 数据库连接
+const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/ai-code-assistant';
+
+const startServer = async () => {
+  try {
+    // 连接数据库
+    await connectDB();
+    console.log('✅ Database connected successfully');
+
+    // 启动服务器
+    app.listen(PORT, () => {
+      console.log(`✅ Server is running on port ${PORT}`);
+      console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+      console.log(`📊 API Endpoints:`);
+      console.log(`   - Health: http://localhost:${PORT}/health`);
+      console.log(`   - Code: http://localhost:${PORT}/api/code`);
+      console.log(`   - Auth: http://localhost:${PORT}/api/auth`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error);
+    process.exit(1);
+  }
+};
+
 // 启动服务器
-app.listen(PORT, () => {
-  console.log(`🚀 OpenClaw Code Assistant API is running on port ${PORT}`);
-  console.log(`📝 Health check: http://localhost:${PORT}/health`);
-  console.log(`📚 API docs: http://localhost:${PORT}/api/v1/code`);
-});
+startServer();
 
 export default app;
